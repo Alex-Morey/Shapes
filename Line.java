@@ -1,32 +1,26 @@
-/**
- * 2217 Java Software Dev 2
- * Project 1 - Shapes, Phase 1
- *
- * Represents a line shape defined by two points and a color.
- *
- * @author Chad
- * @version 1.0
- */
-
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Point;
 
 /**
  * Represents a line defined by two points and a color.
+ *
+ * @author Alexander Morey
+ * @version 2.0 (Phase 2)
  */
 public class Line extends Shape {
 
-    /**
-     * Constructs a Line with two points and a color.
-     *
-     * @param point1 first point
-     * @param point2 second point
-     * @param color  color value
-     */
-    public Line(Point point1, Point point2, double color) {
+    public Line(Point point1, Point point2, Color color) {
         super(point1, point2, color);
     }
 
-    public void draw() {
-        System.out.print("Line");
+    @Override
+    public void draw(Graphics2D g2) {
+        g2.setColor(getColor());
+        Point p1 = getPoint1();
+        Point p2 = getPoint2();
+        g2.drawLine(p1.x, p1.y, p2.x, p2.y);
     }
 }
+
+
